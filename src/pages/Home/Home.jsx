@@ -2,15 +2,17 @@ import "./Home.sass";
 import { database } from "../../context/DataContext";
 
 import ProductModel from "../../components/Product/Product";
+import Filters from "../../components/Filters/Filters";
 const Home = () => {
-  const { data, loading, error } = database();
+  const { filteredProducts, error, loading } = database();
   return (
     <main>
       <h1>Catálogo - CAP</h1>
+      <Filters />
       <section className="produtos">
         {loading === false &&
           error === "" &&
-          data.map((produto) => (
+          filteredProducts.map((produto) => (
             <ProductModel
               key={produto.Codigo_Produto}
               Name={produto.Nome}

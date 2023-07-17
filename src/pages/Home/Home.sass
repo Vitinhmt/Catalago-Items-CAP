@@ -1,10 +1,20 @@
 @use '../../sass/Mixins'
+@use '../../sass/Variables'
+
 main
     max-width: 100vw
     min-height: 100vh
+    @include Mixins.center()
+    flex-direction: column
+    padding: 20px 70px
+    gap: 2rem
+    & h1
+        font-family: Variables.$boldFont
+        font-weight: 800
+        text-transform: uppercase
     & .produtos
-        width: 90%
+        width: 100%
         margin: auto
         @include Mixins.center()
         flex-wrap: wrap
-        gap: 1rem
+        gap: 2rem

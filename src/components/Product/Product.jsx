@@ -1,15 +1,18 @@
 import "./Product.sass";
+import { Link } from "react-router-dom";
 
 const Produto = ({ Name, Desc, Value, Type, Cod, Img }) => {
   return (
-    <div className="product">
+    <Link to={`/produto/${Cod}`} className="product">
       <img src={Img} alt={name} />
-      <h2>{Name}</h2>
-      <h3>{Type}</h3>
-      <h3>Cod.: {Cod}</h3>
-      <h2>R$ {Value}</h2>
-      <p>{Desc}</p>
-    </div>
+      <div>
+        <h2>{Name}</h2>
+        <h3>{Type}</h3>
+        <h4>Cod.: {Cod}</h4>
+        <h5>R$ {Value}</h5>
+        <p>{Desc}</p>
+      </div>
+    </Link>
   );
 };
 
