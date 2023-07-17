@@ -1,0 +1,10 @@
+@use '../../sass/Mixins'
+main
+    max-width: 100vw
+    min-height: 100vh
+    & .produtos
+        width: 90%
+        margin: auto
+        @include Mixins.center()
+        flex-wrap: wrap
+        gap: 1rem
