@@ -7,7 +7,6 @@ const Home = () => {
   const { filteredProducts, error, loading } = database();
   return (
     <main>
-      <h1>Catálogo - CAP</h1>
       <Filters />
       <section className="produtos">
         {loading === false &&

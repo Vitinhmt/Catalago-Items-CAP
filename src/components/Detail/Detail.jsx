@@ -32,20 +32,22 @@ const Detail = ({ data }) => {
         <h4>
           Categoria: <span>{Categoria}</span>
         </h4>
-        <p>
+        <p className="qtd">
           Quantidade disponivel: &nbsp;
           <select name="quantidade" id="quantidade">
             {quantidade()}
           </select>
         </p>
         <h5>
-          Valor:
+          <span>Valor:</span> &nbsp;
           {Custo_unitario.toLocaleString("PT-BR", {
             style: "currency",
             currency: "BRL",
           })}
         </h5>
-        <p>Detalhes: {Descricao}</p>
+        <p>
+          <span>Detalhes</span>: {Descricao}
+        </p>
         <button>Adicionar ao carrinho</button>
       </div>
     </div>

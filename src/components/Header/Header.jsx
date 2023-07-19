@@ -7,6 +7,7 @@ const Header = () => {
   return (
     <header>
       <img src={Logo} alt="Concessionária Águas do Paraiba" />
+      <h1>Catálogo Intercompany - CAP</h1>
       <nav>
         <ul>
           <li>
