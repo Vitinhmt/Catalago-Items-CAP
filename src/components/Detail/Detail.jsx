@@ -33,7 +33,7 @@ const Detail = ({ data }) => {
           Categoria: <span>{Categoria}</span>
         </h4>
         <p>
-          Quantidade disponivel:
+          Quantidade disponivel: &nbsp;
           <select name="quantidade" id="quantidade">
             {quantidade()}
             <option value="">{Quantidade}</option>
