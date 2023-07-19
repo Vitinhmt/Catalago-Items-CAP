@@ -1,5 +1,15 @@
+import { useState, useEffect } from "react";
 const Cart = () => {
-  return <div>Cart</div>;
+  const [cart, setCart] = useState();
+
+  useEffect(() => {
+    const localCartStorage = JSON.parse(
+      localStorage.getItem("Carrinho") || "[]"
+    );
+    setCart(localCartStorage);
+  }, []);
+
+  return <div></div>;
 };
 
 export default Cart;

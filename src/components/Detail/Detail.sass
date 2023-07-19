@@ -6,7 +6,7 @@
     flex-direction: column
     max-width: 1200px
     padding: 0 2rem
-    margin: 8rem auto
+    margin: 2rem auto
     gap: 3rem
     & img
         width: 100%
@@ -15,7 +15,7 @@
         box-shadow: 0 0 12px 1px #ccc
         cursor: pointer
         &:hover
-            scale: 1.05
+            scale: 1.01
     & .desc
         display: flex
         flex-direction: column
@@ -28,6 +28,10 @@
     & h3
         font-size: 1.2rem
         color: #4e4e4e
+        font-weight: 400
+        & span
+            font-family: Variables.$boldFont
+            font-weight: 700
     & h4
         font-family: Variables.$boldFont
         font-size: 1.3rem
@@ -39,6 +43,8 @@
                 text-transform: uppercase
     & .qtd
         font-size: 1.3rem
+        font-family: Variables.$boldFont
+        font-weight: 700
     & h5
         font-size: 1.6rem
         font-weight: 400
@@ -54,9 +60,21 @@
             font-family: Variables.$boldFont
             font-weight: 700
             font-size: 1.3rem
+        & select
+            cursor: pointer
+    & .voltar
+        width: 100%
+        & button
+            display: flex
+            align-items: center
+            gap: .3rem
+            opacity: 1
+            &:hover
+                scale: 1
+                background: #006faf
+
     & button
         width: fit-content
-        margin: auto
         padding: 1.2rem
         font-size: 1.2rem
         background: #2c90ca
@@ -64,5 +82,5 @@
         border-radius: 5px
         box-shadow: 0 0 10px 1px #ccc
         &:hover
-            scale: 1.05
+            scale: 1.03
             cursor: pointer

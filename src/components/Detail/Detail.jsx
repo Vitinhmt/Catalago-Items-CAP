@@ -1,54 +1,81 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { BiArrowBack } from "react-icons/bi";
 import "./Detail.sass";
 const Detail = ({ data }) => {
+  const navigate = useNavigate();
+
   const {
     Img,
     Nome,
-    Codigo_Produto,
+    Codigo_Produto: Codigo,
     Categoria,
     Quantidade,
-    Custo_unitario,
+    Custo_unitario: Valor,
     Descricao,
   } = data;
 
-  const quantidade = () => {
-    const qtd = [];
+  const [qtd, setQtd] = useState(1);
 
-    for (let i = 1; i <= Quantidade; i++) {
-      qtd.push(
-        <option key={i} value={i}>
-          {i}
-        </option>
-      );
-    }
-    return qtd;
-  };
+  function addCart() {
+    const localCart = JSON.parse(localStorage.getItem("Carrinho") || "[]");
+    const Cart = [...localCart];
+    const total = Number(Valor * qtd).toFixed(2);
+
+    Cart.push({
+      img: Img,
+      nome: Nome,
+      cod: Codigo,
+      valor: Valor,
+      quantidade: qtd,
+      total: total,
+    });
+
+    localStorage.setItem("Carrinho", JSON.stringify(Cart));
+  }
 
   return (
     <div className="detail">
+      <div className="voltar">
+        <button onClick={() => navigate("/")}>
+          <BiArrowBack />
+          Voltar
+        </button>
+      </div>
       <img src={Img} alt={Nome} />
       <div className="desc">
         <h2>{Nome}</h2>
-        <h3>Codigo do produto: {Codigo_Produto}</h3>
+        <h3>
+          <span>Codigo do produto:</span> {Codigo}
+        </h3>
         <h4>
           Categoria: <span>{Categoria}</span>
         </h4>
         <p className="qtd">
           Quantidade disponivel: &nbsp;
-          <select name="quantidade" id="quantidade">
-            {quantidade()}
+          <select
+            name="quantidade"
+            onChange={(e) => setQtd(e.target.value)}
+            value={qtd}
+          >
+            {Array.from(Array(Quantidade), (_, i) => (
+              <option value={i + 1} key={i}>
+                {i + 1}
+              </option>
+            ))}
           </select>
         </p>
         <h5>
           <span>Valor:</span> &nbsp;
-          {Custo_unitario.toLocaleString("PT-BR", {
+          {Valor.toLocaleString("PT-BR", {
             style: "currency",
             currency: "BRL",
           })}
         </h5>
         <p>
-          <span>Detalhes</span>: {Descricao}
+          <span>Detalhes:</span> {Descricao}
         </p>
-        <button>Adicionar ao carrinho</button>
+        <button onClick={addCart}>Adicionar ao carrinho</button>
       </div>
     </div>
   );

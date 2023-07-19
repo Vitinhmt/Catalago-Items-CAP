@@ -1,5 +1,5 @@
 import "./ProductDetail.sass";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { database } from "../../context/DataContext";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 
@@ -15,9 +15,10 @@ const ProductDetail = () => {
     filteredProducts.filter(
       (produto) => !cod || produto.Codigo_Produto.includes(cod)
     );
+
   return (
     <div className="productDetail">
-      {!product && (
+      {!product && loading === true && (
         <div className="loading">
           <h3>Carregando Detalhes....</h3>
           <AiOutlineLoading3Quarters />
