@@ -6,11 +6,12 @@
     width: 300px
     height: 550px
     border-radius: 5px
-    background: #e6e6e6
+    background: #e4e4e491
     color: #000
     &:hover
         scale: 1.05
         opacity: 1
+        box-shadow: 0 0 15px 1px #ccc
         &::before
             position: absolute
             content: 'Clique para ver os detalhes'
@@ -27,10 +28,10 @@
         height: 250px
         border-radius: 5px 5px 0 0
     & div
-        padding: .6rem 1rem 
+        padding: .6rem 1rem
         display: flex
         flex-direction: column
-        gap: .4rem   
+        gap: .4rem
         & h2
             font-family: Variables.$boldFont
             font-weight: 800
@@ -38,5 +39,18 @@
             font-family: Variables.$boldFont
             font-weight: 700
             text-transform: lowercase
+            &::first-letter
+                text-transform: uppercase
+        & h4
+            font-family: Variables.$boldFont
+            font-weight: 600
+            color: #000000bb
+        & h5
+            font-family: Variables.$boldFont
+            font-weight: 700
+            font-size: 1.6rem
+        & p
+            text-transform: lowercase
+            font-size: 1.04rem
             &::first-letter
                 text-transform: uppercase

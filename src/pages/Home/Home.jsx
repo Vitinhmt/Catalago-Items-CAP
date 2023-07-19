@@ -17,7 +17,7 @@ const Home = () => {
               key={produto.Codigo_Produto}
               Name={produto.Nome}
               Desc={produto.Descricao}
-              Value={produto.Valor}
+              Value={produto.Custo_unitario.toFixed(2).replace(".", ",")}
               Type={produto.Categoria}
               Cod={produto.Codigo_Produto}
               Img={produto.Img}
