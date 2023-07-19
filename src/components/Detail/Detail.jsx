@@ -13,7 +13,7 @@ const Detail = ({ data }) => {
   const quantidade = () => {
     const qtd = [];
 
-    for (let i; i <= Quantidade; i++) {
+    for (let i = 1; i <= Quantidade; i++) {
       qtd.push(
         <option key={i} value={i}>
           {i}
@@ -36,7 +36,6 @@ const Detail = ({ data }) => {
           Quantidade disponivel: &nbsp;
           <select name="quantidade" id="quantidade">
             {quantidade()}
-            <option value="">{Quantidade}</option>
           </select>
         </p>
         <h5>
