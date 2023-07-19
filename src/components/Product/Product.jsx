@@ -1,16 +1,23 @@
 import "./Product.sass";
 import { Link } from "react-router-dom";
 
-const Produto = ({ Name, Desc, Value, Type, Cod, Img }) => {
+const Produto = ({ data }) => {
+  const { Img, Nome, Codigo_Produto, Categoria, Custo_unitario, Descricao } =
+    data;
   return (
-    <Link to={`/produto/${Cod}`} className="product">
-      <img src={Img} alt={name} />
+    <Link to={`/produto/${Codigo_Produto}`} className="product">
+      <img src={Img} alt={Nome} />
       <div>
-        <h2>{Name}</h2>
-        <h3>{Type}</h3>
-        <h4>Cod.: {Cod}</h4>
-        <h5>R$ {Value}</h5>
-        <p>{Desc}</p>
+        <h2>{Nome}</h2>
+        <h3>{Categoria}</h3>
+        <h4>Cod.: {Codigo_Produto}</h4>
+        <h5>
+          {Custo_unitario.toLocaleString("PT-BR", {
+            style: "currency",
+            currency: "BRL",
+          })}
+        </h5>
+        <p>{Descricao}</p>
       </div>
     </Link>
   );

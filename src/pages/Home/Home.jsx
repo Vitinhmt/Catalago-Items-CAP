@@ -13,15 +13,7 @@ const Home = () => {
         {loading === false &&
           error === "" &&
           filteredProducts.map((produto) => (
-            <ProductModel
-              key={produto.Codigo_Produto}
-              Name={produto.Nome}
-              Desc={produto.Descricao}
-              Value={produto.Custo_unitario.toFixed(2).replace(".", ",")}
-              Type={produto.Categoria}
-              Cod={produto.Codigo_Produto}
-              Img={produto.Img}
-            />
+            <ProductModel key={produto.Codigo_Produto} data={produto} />
           ))}
       </section>
     </main>
