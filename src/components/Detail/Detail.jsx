@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { BiArrowBack } from "react-icons/bi";
+import { cartDB } from "../../context/CartContext";
+import currencyFormat from "../../utils/currencyFormat";
 import "./Detail.sass";
 const Detail = ({ data }) => {
   const navigate = useNavigate();
-
+  const { setCart } = cartDB();
   const {
     Img,
     Nome,
@@ -21,6 +23,10 @@ const Detail = ({ data }) => {
     const localCart = JSON.parse(localStorage.getItem("Carrinho") || "[]");
     const Cart = [...localCart];
     const total = Number(Valor * qtd).toFixed(2);
+    if (Cart.find((produto) => produto.cod === Codigo)) {
+      alert("Produto já no carrinho!");
+      return;
+    }
 
     Cart.push({
       img: Img,
@@ -30,8 +36,9 @@ const Detail = ({ data }) => {
       quantidade: qtd,
       total: total,
     });
-
+    setCart(Cart);
     localStorage.setItem("Carrinho", JSON.stringify(Cart));
+    navigate("/carrinho");
   }
 
   return (
@@ -39,7 +46,7 @@ const Detail = ({ data }) => {
       <div className="voltar">
         <button onClick={() => navigate("/")}>
           <BiArrowBack />
-          Voltar
+          Inicio
         </button>
       </div>
       <img src={Img} alt={Nome} />
@@ -67,10 +74,7 @@ const Detail = ({ data }) => {
         </p>
         <h5>
           <span>Valor:</span> &nbsp;
-          {Valor.toLocaleString("PT-BR", {
-            style: "currency",
-            currency: "BRL",
-          })}
+          {currencyFormat(Valor)}
         </h5>
         <p>
           <span>Detalhes:</span> {Descricao}

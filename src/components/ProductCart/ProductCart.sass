@@ -1,0 +1,86 @@
+@use '../../sass/Mixins'
+@use '../../sass/Variables'
+
+.cartItems
+  display: flex
+  align-items: center
+  width: 100%
+  gap: 2rem
+  margin: auto
+  background: #e4e4e491
+  padding: 1rem
+  border-radius: .5rem
+  & img
+    width: 200px
+    height: 200px
+    border-radius: 5px
+    box-shadow: 0 0 10px 1px #ccc
+    &:hover
+      scale: 1.01
+  & .infos
+    display: flex
+    justify-content: space-between
+    width: 80%
+    flex-direction: row
+    gap: .5rem
+    & div
+      & h2
+        font-family: Variables.$boldFont
+        font-weight: 600
+        font-size: 1.8rem
+        & span
+          font-weight: 800
+      & h3
+        font-family: Variables.$boldFont
+        font-weight: 600
+        color: #5c5c5c
+        font-size: 1.1rem
+        & span
+          font-weight: 800
+      & h4
+        font-family: Variables.$boldFont
+        font-weight: 600
+        font-size: 1.1rem
+        & span
+          font-weight: 800
+      & h5
+        font-family: Variables.$boldFont
+        font-weight: 600
+        font-size: 1.3rem
+        & span
+          font-weight: 800
+      & h6
+        font-family: Variables.$boldFont
+        font-weight: 600
+        font-size: 1.3rem
+        & span
+          font-weight: 800
+      & .detalhes
+        font-family: Variables.$boldFont
+        font-size: 1.2rem
+        margin: 1rem 0
+        font-weight: 700
+        background:#2c90ca
+        padding: .4rem 1.2rem
+        border-radius: .2rem
+        cursor: pointer
+        color: #fff
+        &:hover
+          background: #006faf
+  & .deleteItem
+    cursor: pointer
+    width: fit-content
+    height: fit-content
+    display: flex
+    align-items: center
+    gap: 1rem
+    margin: auto 2rem
+    padding: 1.2rem
+    color: #fff
+    font-family: Variables.$boldFont
+    font-weight: 700
+    font-size: 1.1rem
+    background: red
+    border-radius: .5rem
+    &:hover
+      background: #b90000
