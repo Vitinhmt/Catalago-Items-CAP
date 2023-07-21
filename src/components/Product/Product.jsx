@@ -1,10 +1,10 @@
 import "./Product.sass";
 import { Link } from "react-router-dom";
 import currencyFormat from "../../utils/currencyFormat";
+import ImageValidator from "../../utils/imageValidator";
 
 const Produto = ({ data }) => {
   const {
-    Img,
     Nome,
     Codigo_Produto: Codigo,
     Categoria,
@@ -14,7 +14,7 @@ const Produto = ({ data }) => {
 
   return (
     <Link to={`/produto/${Codigo}`} className="product">
-      <img src={Img} alt={Nome} />
+      <ImageValidator Codigo={Codigo} Nome={Nome} />
       <div>
         <h2>{Nome}</h2>
         <h3>{Categoria}</h3>

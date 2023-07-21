@@ -4,11 +4,11 @@ import { BiArrowBack } from "react-icons/bi";
 import { cartDB } from "../../context/CartContext";
 import currencyFormat from "../../utils/currencyFormat";
 import "./Detail.sass";
+import ImageValidator from "../../utils/imageValidator";
 const Detail = ({ data }) => {
   const navigate = useNavigate();
   const { setCart } = cartDB();
   const {
-    Img,
     Nome,
     Codigo_Produto: Codigo,
     Categoria,
@@ -29,7 +29,6 @@ const Detail = ({ data }) => {
     }
 
     Cart.push({
-      img: Img,
       nome: Nome,
       cod: Codigo,
       valor: Valor,
@@ -49,7 +48,7 @@ const Detail = ({ data }) => {
           Inicio
         </button>
       </div>
-      <img src={Img} alt={Nome} />
+      <ImageValidator Codigo={Codigo} Nome={Nome} />
       <div className="desc">
         <h2>{Nome}</h2>
         <h3>

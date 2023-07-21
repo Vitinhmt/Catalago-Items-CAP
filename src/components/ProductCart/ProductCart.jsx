@@ -3,9 +3,10 @@ import currencyFormat from "../../utils/currencyFormat";
 import { FaTrashAlt } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { cartDB } from "../../context/CartContext";
+import ImageValidator from "../../utils/imageValidator";
 
 const ProductCart = ({ data }) => {
-  const { img, cod, nome, quantidade, valor, total } = data;
+  const { cod, nome, quantidade, valor, total } = data;
   const { setCart } = cartDB();
   const navigate = useNavigate();
 
@@ -21,7 +22,7 @@ const ProductCart = ({ data }) => {
 
   return (
     <div className="cartItems">
-      <img src={img} alt={nome} />
+      <ImageValidator Codigo={cod} Nome={nome} />
       <div className="infos">
         <div>
           <h2>
