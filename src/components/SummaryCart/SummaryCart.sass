@@ -1,0 +1,60 @@
+@use '../../sass/Mixins'
+@use '../../sass/Variables'
+
+.summary
+  width: 60%
+  text-align: center
+  padding: 1rem
+  margin: 1rem 0
+  background: #e4e4e491
+  border-radius: .5rem
+  box-shadow: 0 0 10px -2px #cacaca
+  & h3
+    font-family: Variables.$boldFont
+    font-weight: 700
+    font-size: 1.8rem
+  & p
+    margin: 1rem 0
+    font-family: Variables.$boldFont
+    font-size: 1.4rem
+    font-weight: 800
+    color: #2c90ca
+    & span
+      font-family: 'Raleway', sans-serif
+      font-weight: 400
+      color: black
+  & .Links
+    @include Mixins.center()
+    gap: 2rem
+    & a
+      font-size: 1.2rem
+      @include Mixins.center()
+      gap: .4rem
+      padding: 1rem
+      color: #fff
+      border-radius: .5rem
+      transition: .5s linear
+      font-weight: 600
+      font-family: Variables.$boldFont
+      & img
+        width: 30px
+        height: 30px
+    & .orquestra
+      // background: linear-gradient(to right, #fa50f1, #ff00aa)
+      background: #2c90ca
+      &:hover
+        background: #a7009e
+        box-shadow: 0 0 10px 0px #b400ab
+    & .whatsapp
+      // background: linear-gradient(to right, #075E54,#128C7E, #25D366)
+      background: #2c90ca
+      pointer-events: all
+      & svg
+        color: #15ff00
+        font-size: 1.8rem
+      &:hover
+        background: #25D366
+        box-shadow: 0 0 10px 0px #25D366
+        & svg
+          color: #fff
+        
