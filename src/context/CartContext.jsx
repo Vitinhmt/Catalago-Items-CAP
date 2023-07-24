@@ -11,8 +11,14 @@ export const CartProvider = ({ children }) => {
     );
     setCart(localCartStorage);
   }, []);
+
+  const cleanCart = () => {
+    setCart([]);
+    localStorage.setItem("Carrinho", []);
+  };
+
   return (
-    <CartContext.Provider value={{ setCart, cart }}>
+    <CartContext.Provider value={{ setCart, cart, cleanCart }}>
       {children}
     </CartContext.Provider>
   );
