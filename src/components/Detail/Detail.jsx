@@ -48,37 +48,41 @@ const Detail = ({ data }) => {
           Inicio
         </button>
       </div>
-      <ImageValidator Codigo={Codigo} Nome={Nome} />
       <div className="desc">
-        <h2>{Nome}</h2>
-        <h3>
-          <span>Codigo do produto:</span> {Codigo}
-        </h3>
-        <h4>
-          Categoria: <span>{Categoria}</span>
-        </h4>
-        <p className="qtd">
-          Quantidade disponivel: &nbsp;
-          <select
-            name="quantidade"
-            onChange={(e) => setQtd(e.target.value)}
-            value={qtd}
-          >
-            {Array.from(Array(Quantidade), (_, i) => (
-              <option value={i + 1} key={i}>
-                {i + 1}
-              </option>
-            ))}
-          </select>
-        </p>
-        <h5>
-          <span>Valor:</span> &nbsp;
-          {currencyFormat(Valor)}
-        </h5>
-        <p>
-          <span>Detalhes:</span> {Descricao}
-        </p>
-        <button onClick={addCart}>Adicionar ao carrinho</button>
+        <div className="img">
+          <ImageValidator Codigo={Codigo} Nome={Nome} />
+        </div>
+        <div className="infoDetail">
+          <h2>{Nome}</h2>
+          <h3>
+            <span>Codigo do produto:</span> {Codigo}
+          </h3>
+          <h4>
+            Categoria: <span>{Categoria}</span>
+          </h4>
+          <p className="qtd">
+            Quantidade disponivel: &nbsp;
+            <select
+              name="quantidade"
+              onChange={(e) => setQtd(e.target.value)}
+              value={qtd}
+            >
+              {Array.from(Array(Quantidade), (_, i) => (
+                <option value={i + 1} key={i}>
+                  {i + 1}
+                </option>
+              ))}
+            </select>
+          </p>
+          <h5>
+            <span>Valor:</span> &nbsp;
+            {currencyFormat(Valor)}
+          </h5>
+          <p>
+            <span>Detalhes:</span> {Descricao}
+          </p>
+          <button onClick={addCart}>Adicionar ao carrinho</button>
+        </div>
       </div>
     </div>
   );

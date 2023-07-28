@@ -2,7 +2,7 @@ import "./Footer.sass";
 const Footer = () => {
   return (
     <footer>
-      <h2>Desenvolvido por &copy; Josue Carvalho</h2>
+      <h2>Desenvolvido por &copy; Josué Carvalho</h2>
       <h4>
         Contato: <a href="tel:+5522997979633">(22) 997979633</a>
       </h4>
