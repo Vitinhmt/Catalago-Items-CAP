@@ -12,7 +12,23 @@
   & .cleanCart
     width: 100%
     display: flex
-    justify-content: flex-end
+    justify-content: space-between
+    align-items: center
+    & a
+      margin: 1rem 0
+      display: flex
+      cursor: pointer
+      align-items: center
+      gap: .5rem
+      padding: 1rem
+      font-family: Variables.$boldFont
+      font-size: 1rem
+      font-weight: 800
+      border-radius: .5rem
+      background: #2c90ca
+      color: #fff
+      &:hover
+        background: #006faf
     & button
       margin: 1rem 0
       display: flex
