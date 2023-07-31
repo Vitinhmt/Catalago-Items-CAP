@@ -5,15 +5,17 @@ import SumaryCart from "../../components/SummaryCart/SummaryCart";
 import { FaTrashAlt } from "react-icons/fa";
 import { BsCartPlusFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
+import { database } from "../../context/DataContext";
 
 const Cart = () => {
   const { cart, cleanCart } = cartDB();
+  const { cleanFilters } = database();
   return (
     <div className="cart">
       <h2>Carrinho de Seleções</h2>
       {cart.length > 0 && (
         <div className="cleanCart">
-          <Link to="/">
+          <Link to="/" onClick={cleanFilters}>
             Continuar Comprando <BsCartPlusFill />
           </Link>
           <button onClick={cleanCart}>

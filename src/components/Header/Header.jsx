@@ -2,8 +2,10 @@ import "./Header.sass";
 import { BsCart3 } from "react-icons/bs";
 import Logo from "../../assets/Logo.png";
 import { Link } from "react-router-dom";
+import { database } from "../../context/DataContext";
 
 const Header = () => {
+  const { cleanFilters } = database();
   return (
     <header>
       <img src={Logo} alt="Concessionária Águas do Paraiba" />
@@ -11,7 +13,9 @@ const Header = () => {
       <nav>
         <ul>
           <li>
-            <Link to="/">Página Inicial</Link>
+            <Link to="/" onClick={cleanFilters}>
+              Página Inicial
+            </Link>
           </li>
           <li>
             <Link to="/carrinho">
