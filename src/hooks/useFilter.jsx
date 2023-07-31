@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useFetch } from "./useFetch";
 
 const url =
-  "https://raw.githubusercontent.com/Josuerx12/josuerx12/main/Base%20para%20o%20cat%C3%A1logo.json";
+  "https://raw.githubusercontent.com/Vitinhmt/Cat-logo/master/Base%20para%20o%20cat%C3%A1logo.json";
 
 export const useFilter = () => {
   const { data, loading, error } = useFetch(url);
@@ -17,8 +17,8 @@ export const useFilter = () => {
   }
 
   const filteredProducts =
-    loading === false &&
-    error === "" &&
+    (loading === false &&
+    error === "")&&
     data
       .filter(
         (produto) =>

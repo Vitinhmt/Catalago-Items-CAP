@@ -10,10 +10,6 @@ const Home = () => {
   const { loading, error, filteredProducts } = database();
   const { totalPages, paginatedCollection, currentPage, setCurrentPage } =
     usePagination(filteredProducts);
-
-  console.log(filteredProducts);
-  console.log(paginatedCollection);
-
   return (
     <main>
       <Filters />
@@ -24,8 +20,8 @@ const Home = () => {
         </div>
       )}
       <section className="produtos">
-        {loading === false &&
-          error === "" &&
+        {(loading === false &&
+          error === "") &&
           paginatedCollection.map((produto) => (
             <ProductModel key={produto.Codigo_Produto} data={produto} />
           ))}
