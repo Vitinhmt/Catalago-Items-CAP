@@ -25,6 +25,11 @@ const Cart = () => {
         </div>
       )}
       {cart.length <= 0 && <h3>Carrinho vazio!!</h3>}
+      {cart.length <= 0 && (
+        <Link className="continueBuying" to="/" onClick={cleanFilters}>
+          Clique aqui para comprar <BsCartPlusFill />
+        </Link>
+      )}
       {cart &&
         cart.map((product) => <ProductCart key={product.cod} data={product} />)}
       {cart.length > 0 && <SumaryCart />}
