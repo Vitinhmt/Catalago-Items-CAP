@@ -5,6 +5,7 @@ import { cartDB } from "../../context/CartContext";
 import currencyFormat from "../../utils/currencyFormat";
 import "./Detail.sass";
 import ImageValidator from "../../utils/imageValidator";
+import { database } from "../../context/DataContext";
 const Detail = ({ data }) => {
   const navigate = useNavigate();
   const { setCart } = cartDB();
@@ -40,10 +41,17 @@ const Detail = ({ data }) => {
     navigate("/carrinho");
   }
 
+  const { cleanFilters } = database();
+
   return (
     <div className="detail">
       <div className="voltar">
-        <button onClick={() => navigate("/")}>
+        <button
+          onClick={() => {
+            navigate("/");
+            cleanFilters();
+          }}
+        >
           <BiArrowBack />
           Inicio
         </button>

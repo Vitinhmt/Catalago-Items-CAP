@@ -4,8 +4,16 @@ import { AiOutlineLoading3Quarters } from "react-icons/ai";
 
 import ProductModel from "../../components/Product/Product";
 import Filters from "../../components/Filters/Filters";
+import { usePagination } from "../../hooks/usePagination";
+
 const Home = () => {
-  const { filteredProducts, error, loading } = database();
+  const { loading, error, filteredProducts } = database();
+  const { totalPages, paginatedCollection, currentPage, setCurrentPage } =
+    usePagination(filteredProducts);
+
+  console.log(filteredProducts);
+  console.log(paginatedCollection);
+
   return (
     <main>
       <Filters />
@@ -18,10 +26,15 @@ const Home = () => {
       <section className="produtos">
         {loading === false &&
           error === "" &&
-          filteredProducts.map((produto) => (
+          paginatedCollection.map((produto) => (
             <ProductModel key={produto.Codigo_Produto} data={produto} />
           ))}
       </section>
+      {Array.from(Array(totalPages).keys(), (_, index) => (
+        <button key={index} onClick={() => setCurrentPage(index + 1)}>
+          {index + 1}
+        </button>
+      ))}
     </main>
   );
 };

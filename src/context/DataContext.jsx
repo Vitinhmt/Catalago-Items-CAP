@@ -5,8 +5,15 @@ import { useFilter } from "../hooks/useFilter";
 const DataContext = createContext();
 
 export const DataProvider = ({ children }) => {
-  const { filteredProducts, setCode, setDesc, setCategory, loading, error } =
-    useFilter();
+  const {
+    filteredProducts,
+    setCode,
+    setDesc,
+    setCategory,
+    cleanFilters,
+    loading,
+    error,
+  } = useFilter();
 
   return (
     <DataContext.Provider
@@ -17,6 +24,7 @@ export const DataProvider = ({ children }) => {
         setCategory,
         loading,
         error,
+        cleanFilters,
       }}
     >
       {children}

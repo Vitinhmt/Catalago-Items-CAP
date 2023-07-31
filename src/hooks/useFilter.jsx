@@ -10,6 +10,12 @@ export const useFilter = () => {
   const [desc, setDesc] = useState("");
   const [category, setCategory] = useState("");
 
+  function cleanFilters() {
+    setCode("");
+    setDesc("");
+    setCategory("");
+  }
+
   const filteredProducts =
     loading === false &&
     error === "" &&
@@ -29,5 +35,13 @@ export const useFilter = () => {
           produto.Categoria.toLowerCase().includes(category.toLowerCase())
       );
 
-  return { filteredProducts, setCode, setDesc, setCategory, loading, error };
+  return {
+    filteredProducts,
+    setCode,
+    setDesc,
+    setCategory,
+    cleanFilters,
+    loading,
+    error,
+  };
 };
