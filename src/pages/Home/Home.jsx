@@ -30,11 +30,21 @@ const Home = () => {
             <ProductModel key={produto.Codigo_Produto} data={produto} />
           ))}
       </section>
-      {Array.from(Array(totalPages).keys(), (_, index) => (
-        <button key={index} onClick={() => setCurrentPage(index + 1)}>
-          {index + 1}
-        </button>
-      ))}
+      <div className="pagination">
+        {Array.from(Array(totalPages).keys(), (_, index) => (
+          <button
+            style={
+              index + 1 === currentPage
+                ? { background: "#1c90ca" }
+                : { background: "#a0c9e0" }
+            }
+            key={index}
+            onClick={() => setCurrentPage(index + 1)}
+          >
+            {index + 1}
+          </button>
+        ))}
+      </div>
     </main>
   );
 };

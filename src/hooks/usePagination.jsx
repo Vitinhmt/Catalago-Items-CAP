@@ -1,5 +1,5 @@
 import { useState } from "react";
-const itensPorPagina = 30;
+const itensPorPagina = 20;
 export const usePagination = (collection) => {
   // pagina for 1, itens da posição 0 a 29 de filteredProducts
   const [currentPage, setCurrentPage] = useState(1);
