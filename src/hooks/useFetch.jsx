@@ -9,7 +9,7 @@ export const useFetch = (url) => {
       setLoading(true);
       const data = await fetch(url);
       const dataBody = await data.json();
-      setData(dataBody.Produtos);
+      setData(dataBody);
       setLoading(false);
     } catch (error) {
       setError(error);
